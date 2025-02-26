@@ -13,6 +13,7 @@ const allContact = asyncHandler(async (req, res) => {
 //@route POST/api/contacts
 //@access public
 const createContact = asyncHandler(async (req, res) => {
+  console.log(req);
   const { fname, email, phone } = req.body;
   if (!fname || !email || !phone) {
     res.status(400);
@@ -44,7 +45,9 @@ const updateContact = (req, res) => {
 };
 
 const deleteContact = (req, res) => {
-  res.status(200).json({ message: `delete  contacts ${req.params.id}` });
+  const contact = awai.Contact.findById(req.params.id);
+  console.log(contact);
+  // res.status(200).json({ message: `delete  contacts ${req.params.id}` });
 };
 
 module.exports = {
@@ -54,6 +57,3 @@ module.exports = {
   getContact,
   deleteContact,
 };
-
-
- 
