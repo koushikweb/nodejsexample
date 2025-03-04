@@ -5,8 +5,15 @@ const Contact = require("../models/contactModel");
 //@access public
 
 const allContact = asyncHandler(async (req, res) => {
-  const contacts = await Contact.find();
-  res.status(200).json(contacts);
+  try {
+    console.log("Fetching all contacts");
+    const contacts = await Contact.find();
+    console.log("Contacts fetched:", contacts);
+    res.status(200).json(contacts);
+  } catch (error) {
+    console.log("Error fetching contacts:", error);
+    res.status(500).json({ message: error.message });
+  }
 });
 
 // @desc create new contact
