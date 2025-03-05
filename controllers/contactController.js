@@ -20,7 +20,6 @@ const allContact = asyncHandler(async (req, res) => {
 //@route POST/api/contacts
 //@access public
 const createContact = asyncHandler(async (req, res) => {
-  console.log(req);
   const { fname, email, phone } = req.body;
   if (!fname || !email || !phone) {
     res.status(400);
