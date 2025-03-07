@@ -10,6 +10,15 @@ const getAllProduct = asyncHandler(async (req, res) => {
   }
 });
 
+const createProduct = asyncHandler(async (req, res) =>  {
+    //get request payload
+
+    console.log(res.data());
+}
+
+);
+
 module.exports = {
   getAllProduct,
+  createProduct
 };
