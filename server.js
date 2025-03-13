@@ -13,12 +13,16 @@ connectDb()
   });
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 const port = process.env.port || 5001;
 app.use(express.json());
 
 app.use("/api/contacts", require("./routes/contactRoutes"));
-app.use("/api/products", productRoute);
+app.use("/api", productRoute);
+
+ 
 app.use(errorHandler);
 app.listen(port, () => {
   console.log(`sever is running in port ${port}`);
