@@ -35,9 +35,15 @@ const createProduct = asyncHandler(async (req, res) =>  {
      }
 });
 
-const getProduct = async() =>  {
-    console.log("I am inside get product");
-}
+const getSinglProduct = asyncHandler( async(req, res) =>  {
+     //get all product 
+      console.log(req.body);
+
+      // const allProdcts = await productModel.find();
+      // if (!allProdcts) {
+      //   res.status(400).send({message: "No Product found"});
+      // }
+});
 
 const updateProduct = async () =>  {
    try {
@@ -55,7 +61,7 @@ const deleteProduct = async() =>  {
 
 module.exports = {
   getAllProduct,
-  getProduct,
+  getSinglProduct,
   createProduct,
   updateProduct,
   deleteProduct

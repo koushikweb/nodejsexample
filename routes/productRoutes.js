@@ -4,7 +4,7 @@ const router = express.Router();
 const {
   getAllProduct,
   createProduct,
-   getProduct,
+  getSinglProduct,
    updateProduct,
    deleteProduct,
 } = require("../controllers/productController");
@@ -14,7 +14,7 @@ router.route("/products").get(getAllProduct).post(createProduct);
 
 // fetch single product, update product and delete product
 router.route("/api/product/:id")
-  .get(getProduct).put(updateProduct).delete(deleteProduct);
+  .get(getSinglProduct).put(updateProduct).delete(deleteProduct);
 
 //basic route
 router.get("/api/", (req, res) => {
